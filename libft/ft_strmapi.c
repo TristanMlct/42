@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:26:57 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/10/24 23:17:56 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/09 13:28:08 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*r;
 	unsigned int	i;
 
+	if (!s)
+		return (0);
 	r = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!r)
 		return (0);

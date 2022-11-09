@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:16:48 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/10/23 17:26:37 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/09 13:18:11 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
+	if (!s1 || !s2)
+		return (0);
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
 	r = malloc((len_s1 + len_s2 + 1) * sizeof(char));
