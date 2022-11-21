@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 12:54:18 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/20 22:08:04 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/20 22:11:22 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "libft.h"
 
 int	print_nbr_len(unsigned int n)
 {
 	int					c;
-	long unsigned int	copy;
 
 	c = 0;
-	copy = n;
-	if (n < 0)
+	while (n / 10 != 0)
 	{
 		c++;
-		copy *= -1;
-	}
-	while (copy / 10 != 0)
-	{
-		c++;
-		copy /= 10;
+		n /= 10;
 	}
 	return (c + 1);
 }
@@ -36,27 +29,18 @@ char	*ft_uitoa(unsigned int n)
 {
 	char				*s;
 	int					size;
-	int					min;
-	long unsigned int	copy;
 
 	size = print_nbr_len(n);
 	s = malloc((size + 1) * sizeof(char));
 	if (!s)
 		return (0);
 	s[size] = '\0';
-	min = 0;
-	copy = n;
-	if (n < 0 && ++min)
-	{
-		s[0] = '-';
-		copy *= -1;
-	}
-	if (size == 1 && copy == 0)
+	if (size == 1 && n == 0)
 		s[0] = '0';
-	while (copy != 0 && --size >= min)
+	while (n != 0 && --size >= 0)
 	{
-		s[size] = (copy % 10) + '0';
-		copy /= 10;
+		s[size] = (n % 10) + '0';
+		n /= 10;
 	}
 	return (s);
 }

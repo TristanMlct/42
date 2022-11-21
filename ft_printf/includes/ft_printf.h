@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 12:47:41 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/13 13:02:34 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/20 22:07:55 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include "libft.h"
 
-int		nbr_len(unsigned int n);
+int		print_nbr_len(unsigned int n);
 char	*ft_uitoa(unsigned int n);
 int		print_char(int c);
 int		print_string(char *str);

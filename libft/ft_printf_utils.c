@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 12:54:18 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/20 22:08:04 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/20 22:09:21 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "libft.h"
 
 int	print_nbr_len(unsigned int n)
 {
 	int					c;
-	long unsigned int	copy;
 
 	c = 0;
-	copy = n;
-	if (n < 0)
+	while (n / 10 != 0)
 	{
 		c++;
-		copy *= -1;
-	}
-	while (copy / 10 != 0)
-	{
-		c++;
-		copy /= 10;
+		n /= 10;
 	}
 	return (c + 1);
 }

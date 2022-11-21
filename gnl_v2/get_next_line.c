@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:33:16 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/16 15:01:06 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:26:49 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,15 @@ int	is_bn_in_line(char *str)
 	return (0);
 }
 
+char	*init_curr_line(void)
+{
+	char	*r;
+
+	r = malloc(sizeof(char));
+	r[0] = '\0';
+	return (r);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*curr_line = 0;
@@ -112,10 +121,7 @@ char	*get_next_line(int fd)
 	int			size;
 
 	if (!curr_line)
-	{
-		curr_line = malloc(sizeof(char));
-		curr_line[0] = '\0';
-	}
+		curr_line = init_curr_line();
 	while (!is_bn_in_line(curr_line))
 	{
 		size = read(fd, buffer, 42);
