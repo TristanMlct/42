@@ -6,7 +6,7 @@
 #    By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/20 21:40:35 by tmilcent          #+#    #+#              #
-#    Updated: 2022/11/20 21:59:13 by tmilcent         ###   ########.fr        #
+#    Updated: 2022/11/21 23:43:27 by tmilcent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ DIR_INC	=	./
 DIR_OBJ	=	./objs/
 DIR_LIB	=	./libft/
 
-SRCS_F	=	push_swap.c args.c error.c
+SRCS_F	=	push_swap.c args.c error.c utils.c
 
 SRCS = $(addprefix $(DIR_SRC), $(SRCS_F))
 OBJS = $(addprefix $(DIR_OBJ), $(SRCS_F:.c=.o))

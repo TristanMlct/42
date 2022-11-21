@@ -6,13 +6,13 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:36:09 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/20 21:54:34 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:24:01 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error(void)
+int	print_error(void)
 {
 	ft_putendl_fd("Error", 2);
 	return (0);
