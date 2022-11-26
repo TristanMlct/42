@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:18:09 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/22 00:19:55 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:28:17 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_isint(char *str)
 		r += (str[i] - '0');
 		i++;
 	}
+	r *= neg;
 	if (r > 2147483647 || r < -2147483648)
 		return (0);
 	return (1);
@@ -46,8 +47,6 @@ void	free_tabstr(char *tab_str[])
 
 	i = -1;
 	while (tab_str[++i])
-	{
 		free(tab_str[i]);
-	}
 	free(tab_str);
 }

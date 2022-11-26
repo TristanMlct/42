@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:41:22 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/23 13:25:45 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:59:13 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <stdio.h>
 
 typedef struct s_args
 {
@@ -26,6 +27,12 @@ typedef struct s_pile
 	int				value;
 	struct s_pile	*next;
 }	t_pile;
+
+/*
+	push_swap.c
+*/
+void	init_piles(t_pile **pile_a, t_pile **pile_b, t_args *args);
+void	perform_algo(t_pile **pile_a, t_pile **pile_b);
 
 /*
 	args.c
@@ -53,7 +60,46 @@ void	free_tabstr(char *tab_str[]);
 t_pile	*ft_pilenew(int value);
 void	ft_pileadd_back(t_pile **pile, t_pile *new);
 t_pile	*ft_pilelast(t_pile *pile);
-void	ft_pileprint(t_pile *pile);
+void	ft_pileprint(t_pile *pile_a, t_pile *pile_b);
 void	ft_pileclear(t_pile **pile);
+
+/*
+	swap_utils.c
+*/
+void	swap_first(t_pile **pile);
+void	sa(t_pile **pile_a);
+void	sb(t_pile **pile_b);
+void	ss(t_pile **pile_a, t_pile **pile_b);
+
+/*
+	push_utils.c
+*/
+void	push_first(t_pile **src, t_pile **dst);
+void	pa(t_pile **pile_b, t_pile **pile_a);
+void	pb(t_pile **pile_a, t_pile **pile_b);
+
+/*
+	rotate_utils.c
+*/
+void	rotate_pile(t_pile **pile);
+void	ra(t_pile **pile_a);
+void	rb(t_pile **pile_b);
+void	rr(t_pile **pile_a, t_pile **pile_b);
+
+/*
+	rev_rotate_utils.c
+*/
+void	rev_rotate_pile(t_pile **pile);
+void	rra(t_pile **pile_a);
+void	rrb(t_pile **pile_b);
+void	rrr(t_pile **pile_a, t_pile **pile_b);
+
+/*
+	algo_utils.c
+*/
+int		is_sorted(t_pile *pile);
+int		ft_pilesize(t_pile *pile);
+int		calculate_best_move(t_pile *pile_a, t_pile *pile_b);
+int		get_nbr_move_to_be_sort(int v, t_pile *b);
 
 #endif

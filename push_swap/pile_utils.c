@@ -6,12 +6,11 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 22:09:44 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/23 13:25:09 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:23:03 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 t_pile	*ft_pilenew(int value)
 {
@@ -54,15 +53,27 @@ t_pile	*ft_pilelast(t_pile *pile)
 	return (pile);
 }
 
-void	ft_pileprint(t_pile *pile)
+void	ft_pileprint(t_pile *pile_a, t_pile *pile_b)
 {
-	while (pile)
+	ft_printf("_______________\n");
+	while (pile_a)
 	{
-		ft_printf("%d\n", pile->value);
-		pile = pile->next;
+		ft_printf("%d      | ", pile_a->value);
+		if (pile_b)
+		{
+			ft_printf("%d", pile_b->value);
+			pile_b = pile_b->next;
+		}
+		ft_printf("\n");
+		pile_a = pile_a->next;
 	}
-	ft_printf("----\n");
-	ft_printf("Pile\n");
+	while (pile_b)
+	{
+		ft_printf("       | %d\n", pile_b->value);
+		pile_b = pile_b->next;
+	}
+	ft_printf("_______________\n");
+	ft_printf("pile a | pile b\n");
 }
 
 void	ft_pileclear(t_pile **pile)
