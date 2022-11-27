@@ -6,21 +6,11 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:33:16 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/16 17:26:49 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/27 09:03:52 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	*ft_join(char *s1, char *s2, int size)
 {
@@ -91,19 +81,6 @@ char	*remove_first_line(char *str)
 	}
 }
 
-int	is_bn_in_line(char *str)
-{
-	int	i;
-
-	i = -1;
-	while (str[++i])
-	{
-		if (str[i] == '\n')
-			return (1);
-	}
-	return (0);
-}
-
 char	*init_curr_line(void)
 {
 	char	*r;
@@ -117,14 +94,14 @@ char	*get_next_line(int fd)
 {
 	static char	*curr_line = 0;
 	char		*r;
-	char		buffer[43];
+	char		buffer[BUFFER_SIZE + 1];
 	int			size;
 
 	if (!curr_line)
 		curr_line = init_curr_line();
 	while (!is_bn_in_line(curr_line))
 	{
-		size = read(fd, buffer, 42);
+		size = read(fd, buffer, BUFFER_SIZE);
 		if (size == -1)
 		{
 			free(curr_line);
