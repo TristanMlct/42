@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:10:28 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/27 09:03:45 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/11/27 09:13:14 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
 
 char	*ft_join(char *s1, char *s2, int size);
 char	*find_line(char *str);
