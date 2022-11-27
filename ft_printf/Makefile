@@ -6,7 +6,7 @@
 #    By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/16 21:05:27 by tmilcent          #+#    #+#              #
-#    Updated: 2022/11/13 12:59:59 by tmilcent         ###   ########.fr        #
+#    Updated: 2022/11/13 15:24:19 by tmilcent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ clean		:
 				${RM} ${OBJS}
 
 fclean		:	clean
-				${RM} ${NAME}
+				${RM} ${NAME} ${DIRLIB}${NAMELIB}
 
 re			:	fclean ${NAME}
 
