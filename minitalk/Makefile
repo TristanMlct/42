@@ -6,14 +6,14 @@
 #    By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/20 21:40:35 by tmilcent          #+#    #+#              #
-#    Updated: 2022/11/27 19:21:33 by tmilcent         ###   ########.fr        #
+#    Updated: 2022/11/30 15:01:07 by tmilcent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME_S	=	server
 NAME_C	=	client
 
-FLAGS	=	-Wall -Werror -Wextra -fsanitize=address
+FLAGS	=	-Wall -Werror -Wextra
 
 DIR_SRC	=	./
 DIR_INC	=	./
@@ -34,9 +34,11 @@ LIB = -L $(DIR_LIB) -lft
 
 all				:	$(NAME_S) $(NAME_C)
 
-$(NAME)			:	$(DIR_OBJ) $(LIBFT) $(OBJS_C) $(OBJS_S)
-					gcc -fsanitize=address $(OBJS_C) $(LIB) -o $(NAME_S)
-					gcc -fsanitize=address $(OBJS_S) $(LIB) -o $(NAME_C)
+$(NAME_C)		:	$(DIR_OBJ) $(LIBFT) $(OBJS_C)
+					gcc $(OBJS_C) $(LIB) -o $(NAME_C)
+
+$(NAME_S)		:	$(DIR_OBJ) $(LIBFT) $(OBJS_S)
+					gcc $(OBJS_S) $(LIB) -o $(NAME_S)
 
 $(DIR_OBJ)		:
 					mkdir -p $(DIR_OBJ)
@@ -52,7 +54,8 @@ clean			:
 					make -C $(DIR_LIB) clean
 
 fclean			:	clean
-					rm -f $(NAME)
+					rm -f $(NAME_S)
+					rm -f $(NAME_C)
 					make -C $(DIR_LIB) fclean
 
 re				:	fclean all
