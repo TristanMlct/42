@@ -6,7 +6,7 @@
 #    By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/20 21:40:35 by tmilcent          #+#    #+#              #
-#    Updated: 2022/11/30 23:47:19 by tmilcent         ###   ########.fr        #
+#    Updated: 2022/12/03 22:19:22 by tmilcent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ DIR_OBJ	=	./objs/
 DIR_LIB	=	./libft/
 DIR_MLX	=	./mlx_linux/
 
-SRCS_F	=	main.c draw_utils.c parsing.c utils.c init.c
+SRCS_F	=	main.c draw_utils.c parsing.c utils.c init.c isometric.c
 
 SRCS = $(addprefix $(DIR_SRC), $(SRCS_F))
 OBJS = $(addprefix $(DIR_OBJ), $(SRCS_F:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:00:01 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/30 23:12:40 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/02 13:20:24 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
-char	*ft_join(char *s1, char *s2, int size);
-char	*find_line(char *str);
-char	*remove_first_line(char *str);
-char	*init_curr_line(void);
-char	*get_next_line(int fd);
-int		is_bn_in_line(char *str);
 
 typedef struct s_list
 {
@@ -89,5 +82,12 @@ int		print_unsigned_int(unsigned int nb);
 int		print_hex(unsigned int nb, char type);
 int		print_format(char c, va_list args);
 int		ft_printf(const char *str, ...);
+
+char	*ft_join(char *s1, char *s2, int size);
+int		is_bn_in_line(char *str);
+char	*find_line(char *str);
+char	*remove_first_line(char *str);
+char	*init_curr_line(void);
+char	*get_next_line(int fd);
 
 #endif

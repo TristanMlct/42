@@ -6,18 +6,22 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 22:11:53 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/30 23:22:27 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/03 22:50:11 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	put_pixel(t_data *img, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	if (y >= 0)
+	{
+		dst = img->addr + (y * img->line_length
+				+ x * (img->bits_per_pixel / 8));
+		*(unsigned int *)dst = color;
+	}
 }
 
 t_point	init_point(int x, int y)
@@ -43,7 +47,7 @@ void	draw_line(t_data *img, t_point a, t_point b, int color)
 	{
 		tmp = (float) a.x + ((float)(b.x - a.x) / step) * i;
 		tmp2 = (float) a.y + ((float)(b.y - a.y) / step) * i;
-		my_mlx_pixel_put(img, (int) roundf(tmp),
+		put_pixel(img, (int) roundf(tmp),
 			(int) roundf(tmp2), color);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:33:16 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/30 23:13:02 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/02 13:21:03 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*remove_first_line(char *str)
 	i = -1;
 	while (str[++i] != '\n' && str[i])
 		continue ;
-	if (i == ft_strlen(str))
+	if (i == (int) ft_strlen(str))
 	{
 		free(str);
 		return (0);
