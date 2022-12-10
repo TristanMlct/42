@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:15:48 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/22 00:04:15 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:13:53 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	check_args_as_int(t_args *args, int argc, char *argv[])
 	i = -1;
 	while (++i < args->nb)
 	{
-		if (!ft_isint(argv[i + 1]))
+		if (ft_strlen(argv[i + 1]) >= 12 || !ft_isint(argv[i + 1]))
 		{
 			free(args->tab_int);
 			args->tab_int = 0;

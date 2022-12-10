@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:12:36 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/26 00:58:32 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:54:23 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ void	init_piles(t_pile **pile_a, t_pile **pile_b, t_args *args)
 	i = -1;
 	while (++i < args->nb)
 		ft_pileadd_back(pile_a, ft_pilenew(args->tab_int[i]));
-	pb(pile_a, pile_b);
-	pb(pile_a, pile_b);
-	pb(pile_a, pile_b);
-	if ((*pile_b)->next && ((*pile_b)->next->value > (*pile_b)->value))
-		sb(pile_b);
 }
 
 void	perform_algo(t_pile **pile_a, t_pile **pile_b)
