@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:41:22 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/26 00:59:13 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:20:06 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include <stdio.h>
 
 typedef struct s_args
 {
@@ -33,6 +32,7 @@ typedef struct s_pile
 */
 void	init_piles(t_pile **pile_a, t_pile **pile_b, t_args *args);
 void	perform_algo(t_pile **pile_a, t_pile **pile_b);
+void	finish_algo(t_pile **pile_a, t_pile **pile_b);
 
 /*
 	args.c
@@ -53,6 +53,8 @@ int		print_error(void);
 */
 int		ft_isint(char *str);
 void	free_tabstr(char *tab_str[]);
+int		get_pile_max_value(t_pile *pile);
+int		get_pile_min_value(t_pile *pile);
 
 /*
 	pile_utils.c
@@ -101,5 +103,15 @@ int		is_sorted(t_pile *pile);
 int		ft_pilesize(t_pile *pile);
 int		calculate_best_move(t_pile *pile_a, t_pile *pile_b);
 int		get_nbr_move_to_be_sort(int v, t_pile *b);
+void	make_best_move(t_pile **pile_a, t_pile **pile_b, int pos);
+
+/*
+	other_algo.c
+*/
+void	small_pile_algo(t_pile **pile_a);
+void	medium_pile_algo(t_pile **pile_a, t_pile **pile_b);
+int		calculate_best_move_medium(t_pile *pile_a, t_pile *pile_b);
+int		get_nbr_move_to_be_sort_medium(int v, t_pile *a);
+void	make_best_move_medium(t_pile **pile_a, t_pile **pile_b, int pos);
 
 #endif

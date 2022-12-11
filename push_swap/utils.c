@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:18:09 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/11/25 18:28:17 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/11 11:41:03 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,32 @@ void	free_tabstr(char *tab_str[])
 	while (tab_str[++i])
 		free(tab_str[i]);
 	free(tab_str);
+}
+
+int	get_pile_max_value(t_pile *pile)
+{
+	int	max;
+
+	max = pile->value;
+	while (pile->next)
+	{
+		pile = pile->next;
+		if (pile->value > max)
+			max = pile->value;
+	}
+	return (max);
+}
+
+int	get_pile_min_value(t_pile *pile)
+{
+	int	min;
+
+	min = pile->value;
+	while (pile->next)
+	{
+		pile = pile->next;
+		if (pile->value < min)
+			min = pile->value;
+	}
+	return (min);
 }
