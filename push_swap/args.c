@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:15:48 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/12/07 14:13:53 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/12 23:48:13 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,32 +18,22 @@ int	check_args(t_args *args, int argc, char *argv[])
 		check_args_as_str(args, argv[1]);
 	else if (argc > 2)
 		check_args_as_int(args, argc, argv);
+	else
+		return (0);
 	if (!args->tab_int)
-	{
-		free(args);
 		return (print_error());
-	}
 	return (1);
 }
 
 int	check_args_chars(t_args *args, char *str[])
 {
 	int	i;
-	int	j;
 
 	i = -1;
 	while (++i < args->nb)
 	{
-		j = 0;
-		while (str[i][j])
-		{
-			if (!ft_isdigit(str[i][j]) && str[i][j] != '-' && str[i][j] != '+'
-			&& str[i][j] != ' ' && !(str[i][j] >= 9 && str[i][j] <= 13))
-			{
-				return (0);
-			}
-			j++;
-		}
+		if (!is_correct(str[i]))
+			return (0);
 	}
 	return (1);
 }
@@ -58,7 +48,7 @@ void	check_args_as_str(t_args *args, char *str)
 	while (tab_str[i])
 		i++;
 	args->nb = i;
-	if (!check_args_chars(args, tab_str))
+	if (!i || !check_args_chars(args, tab_str))
 		return (free_tabstr(tab_str));
 	args->tab_int = malloc(sizeof(int) * i);
 	i = -1;
@@ -87,7 +77,7 @@ void	check_args_as_int(t_args *args, int argc, char *argv[])
 	i = -1;
 	while (++i < args->nb)
 	{
-		if (ft_strlen(argv[i + 1]) >= 12 || !ft_isint(argv[i + 1]))
+		if (!ft_isint(argv[i + 1]))
 		{
 			free(args->tab_int);
 			args->tab_int = 0;

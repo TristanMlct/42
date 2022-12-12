@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:12:36 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/12/11 19:24:28 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/12 23:52:33 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,18 @@ int	main(int argc, char *argv[])
 	{
 		init_piles(&pile_a, &pile_b, args);
 		free(args->tab_int);
-		free(args);
+		if (is_sorted(pile_a))
+		{
+			ft_pileclear(&pile_a);
+			ft_pileclear(&pile_b);
+			free(args);
+			return (0);
+		}
 		perform_algo(&pile_a, &pile_b);
 		ft_pileclear(&pile_a);
 		ft_pileclear(&pile_b);
 	}
+	free(args);
 }
 
 void	init_piles(t_pile **pile_a, t_pile **pile_b, t_args *args)

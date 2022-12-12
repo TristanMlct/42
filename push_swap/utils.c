@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:18:09 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/12/11 11:41:03 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/12 23:30:44 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,30 @@ int	get_pile_min_value(t_pile *pile)
 			min = pile->value;
 	}
 	return (min);
+}
+
+int	is_correct(char *str)
+{
+	int	i;
+	int	as_digit;
+
+	i = 0;
+	as_digit = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!(str[i] >= '0' && str[i] <= '9'))
+		return (0);
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		as_digit = 1;
+		i++;
+	}
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (!str[i] && as_digit)
+		return (1);
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tmilcent <tmilcent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:41:22 by tmilcent          #+#    #+#             */
-/*   Updated: 2022/12/11 21:20:06 by tmilcent         ###   ########.fr       */
+/*   Updated: 2022/12/12 19:26:32 by tmilcent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		ft_isint(char *str);
 void	free_tabstr(char *tab_str[]);
 int		get_pile_max_value(t_pile *pile);
 int		get_pile_min_value(t_pile *pile);
+int		is_correct(char *str);
 
 /*
 	pile_utils.c
